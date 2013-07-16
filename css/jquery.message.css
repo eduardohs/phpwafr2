@@ -1,0 +1,32 @@
+.jquery-message {
+    font: normal 20px / 50px Helvetica, Arial, Sans-Serif;
+    letter-spacing: -1px;
+    position: absolute;
+    /* top: 250px; */
+	top: 50px;
+    left: 25%;
+    width: 50%;
+    color: white;
+    background-color: black;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    z-index: 100000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.jquery-message .round {
+	
+}
+
+.jquery-message p {
+    padding: .3em;
+    display: inline;
+}
+
+.jquery-message a {
+    display: none;
+}

@@ -1,0 +1,10 @@
+/* Logo da tela de login **********************************************************************************************/
+#logo-login {
+	background: url(../img/phpwafr.png) no-repeat;
+	width: 200px;
+	height: 181px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+

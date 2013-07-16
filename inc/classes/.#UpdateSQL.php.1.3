@@ -1,0 +1,104 @@
+<?php
+class UpdateSQL { 
+
+	private $action; 
+	private $table;
+	private $keyField;
+	private $keyValue;
+	private $keyType;
+	private $updateFields;
+	private $updateValues;
+	private $updateTypes;
+	
+	const STRING = "String";
+	const NUMBER = "Number";
+	const DATE = "Date";
+	
+	const UPDATE = "UPDATE";
+	const INSERT = "INSERT";
+	const DELETE = "DELETE";
+
+	public function UpdateSQL($theAction = "", $theTable = "") {
+		$this->action = strtoupper($theAction);
+		$this->table = $theTable;
+	}
+
+	public function setKey($theField, $theValue, $theType) {
+		$this->keyField = $theField;
+		$this->keyValue = $theValue;
+		$this->keyType = $theType;
+	}
+
+	public function addField($theField, $theValue, $theType) {
+		$this->updateFields[] = $theField;
+		$this->updateValues[] = $theValue;
+		$this->updateTypes[] = $theType;
+	}
+
+	public function setAction($theAction) {
+		$this->action = strtoupper($theAction);
+	}
+
+	public function setTable($theTable) {
+		$this->table = $theTable;
+	}
+
+	public function getSQL() {
+		$sql = "";
+		// inclusão
+		if ($this->action == UpdateSQL::INSERT) {
+			$sql .= "INSERT INTO " . $this->table . " (";
+			$fieldlist = "";
+			$valuelist = "";
+			for ($i = 0; $i < sizeof($this->updateFields); $i++) {
+				$fieldlist .= $this->updateFields[$i] . ", ";
+				$valuelist .= $this->getValue($this->updateValues[$i], $this->updateTypes[$i]) . ", ";
+			}
+			$fieldlist = substr($fieldlist, 0, -2);
+			$valuelist = substr($valuelist, 0, -2);
+			$sql .= $fieldlist . ") VALUES (" . $valuelist . ")";
+			
+			if (DB_TYPE=="postgresql") {
+				$sql .= " RETURNING ".$this->keyField;
+			}
+		}
+
+		// alteração
+		if ($this->action == UpdateSQL::UPDATE) {
+			$sql .= "UPDATE " . $this->table . " SET ";
+			$updatelist = "";
+			for ($i = 0; $i < sizeof($this->updateFields); $i++) {
+				$updatelist .= $this->updateFields[$i] . "=" . $this->getValue($this->updateValues[$i], $this->updateTypes[$i]) . ", ";
+			}
+			$updatelist = substr($updatelist, 0, -2);
+			$sql .= $updatelist . " WHERE " . $this->keyField . "=" . $this->getValue($this->keyValue, $this->keyType);
+		}
+
+		// exclusão
+		if ($this->action == UpdateSQL::DELETE) {
+			$sql .= "DELETE FROM " . $this->table . " WHERE " . $this->keyField . "=" . $this->getValue($this->keyValue, $this->keyType);
+		}
+
+		return $sql;
+	}
+
+	private function getValue($value, $type) {
+		if (!strlen($value)) {
+			return "NULL";
+		} else {
+			if ($type == UpdateSQL::NUMBER) {
+				return str_replace(",", ".", doubleval($value));
+			} else {
+				if (get_magic_quotes_gpc() == 0) {
+					$value = str_replace("'", "''", $value);
+					$value = str_replace("\\", "\\\\", $value);
+				} else {
+					$value = str_replace("\\'", "''", $value);
+					$value = str_replace("\\\"", "\"", $value);
+				}
+				return "'" . $value . "'";
+			}
+		}
+	}
+
+}

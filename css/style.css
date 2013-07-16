@@ -1,0 +1,652 @@
+* {
+	font-family: "Helvetica Neue", helvetica, Arial;
+	margin: 0;
+	padding: 0;
+	font-size: small;
+}
+
+body {
+	overflow: hidden;
+}
+
+#container {
+	background-color: #464646;
+	width: 100%;
+}
+
+#header {
+	padding: 5px 13px 5px 13px;
+	height: 25px;
+	border: 0;
+}
+
+#header-lov-close {
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	background: url(../img/fechar1.png) no-repeat;
+	width:29px;
+	height:29px;
+	cursor: pointer;
+}
+
+#header-title {
+	font-size: 18px;
+	float: left;
+	width: 300px;
+	/*color: #545454;*/
+}
+#header-info {
+	float: right;
+	width: 300px;
+	text-align: right;
+	margin-top: 5px;
+	font-size: small;
+	font-weight: normal;
+}
+#header-info a {
+	text-decoration: none;
+}
+
+#dialog-confirm {
+	font-size: small;
+	display: none;
+}
+#dialog {
+	display: none;
+}
+#dialog-confirm p {
+	font-size: small;
+}
+#titulo-pagina {
+	font-size: medium;
+	font-weight: bold;
+	clear: both;
+	text-align: left;
+	border: 0 0 1px 0;
+	padding: 5px 5px 5px 13px;
+}
+
+#acoes {
+	padding: 10px 10px 10px 12px;
+	background-color: #FFFFFF;
+}
+
+#div-loading {
+	position: absolute;
+	bottom: 5px;
+	right: 30px;
+	background-color: #FFFFFF;
+	padding: 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#dados {
+	overflow: auto;
+	padding: 10px;
+	font-size: medium;
+	background-color: #FFFFFF;
+}
+
+#dados pre {
+	font-family: monospace;
+}
+
+input, select, textarea { padding: 2px; }
+input.number { text-align: right; padding: 2px;}
+
+.ui-button-icon-only {
+	width: 2em !important;
+	height: 2em !important;
+}
+
+/* Form ***********************************************************************************************************/
+.form-font {
+	font-weight: normal !important;
+	padding: 3px;
+	font-size: small;
+}
+#dados .div-form td, #dados .div-form td input, #dados .div-form td select, #dados .div-form td textarea {
+	font-size: small;
+	padding: 3px;
+}
+#dados .div-form td .checkbox {
+	/*margin-top: 4px;*/
+}
+#dados .div-form {
+	margin-top: 0px;
+	text-align: center;
+}
+#dados .div-form table {
+	text-align: center;
+	/*width: 1%;*/
+}
+
+#dados .div-form th {
+	padding: 8px 8px 8px 8px;
+	white-space: nowrap;
+	text-align: right;
+	font-weight: normal;
+	font-size: small;
+	color: #545454;
+}
+#acoes .div-form th,#acoes .div-form td {
+
+	white-space: nowrap;
+	text-align: left;
+	font-weight: normal;
+	font-size: small;
+	color: #545454;
+}
+#dados .div-form td {
+	padding: 8px 8px 8px 4px;
+	text-align: left;
+	white-space: nowrap;
+}
+#dados .div-form td span {
+	/*vertical-align: middle;*/
+}
+#dados .div-form .separator {
+	font-weight: normal;
+	padding: 3px;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	color: #333;
+	padding: 5px 5px 5px 5px;
+}
+#dados .div-form td img {
+	/*
+	vertical-align: middle;
+	padding: 0px 4px 0px 4px;
+	*/
+}
+#dados .div-form .comment {
+	margin-top: 20px;
+	font-size: x-small;
+	color: #999999;
+	text-align: left;
+}
+
+/* View **********************************************************************************************************/
+.div-view {
+	width: 100%;
+	text-align: center;
+}
+.div-view tr td {
+	text-align: left;
+	padding: 5px 10px 5px 10px;
+	vertical-align: top;
+}
+.div-view tr td .label {
+	font-weight: bold;
+	color: #666666;
+	font-size: x-small;
+	text-transform: uppercase;
+	white-space: nowrap;
+	padding-bottom: 2px;
+}
+.div-view tr td .value {
+	font-size: small;
+	font-weight: normal;
+	color: #333333;
+	padding: 3px;
+	max-width: 400px;
+	min-width: 40px;
+	min-height: 16px;
+}
+.div-view .separator {
+	font-weight: normal;
+	font-size: x-small;
+	text-transform: uppercase;
+	padding: 5px;
+}
+/* Table *********************************************************************************************************/
+.div-table {
+	width: 100%;
+	text-align: center;
+	font-size: small;
+}
+.div-table table {
+	width: 100%;
+}
+.div-table th {
+	font-weight: bold;
+	padding: 8px 4px 8px 4px;
+}
+
+.div-table td {
+	border-bottom: 1px solid #E6E6E6;
+	padding: 8px 4px 8px 4px;
+}
+.div-table td input {
+	vertical-align: bottom;
+}
+
+.div-table tr.odd {
+	background-color: #FFFFFF;
+}
+.div-table tr.even {
+	background-color: #FDFDFD;
+}
+.div-table .separator {
+	font-weight: bold;
+	text-align: left;
+	border: 0;
+}
+.div-table td a {
+	color: #464646;
+	text-decoration: underline;
+}
+.div-table td a:hover {
+	color: #D54E21;
+	text-decoration: underline;
+}
+.div-table th a {
+	text-decoration: none;
+}
+.div-table th a:hover {
+	text-decoration: none;
+}
+.highlight-mouse {
+	background-color: #F5F5F5 !important;
+}
+.highlight-selected {
+	background-color: #EFF8FD !important;
+}
+#div-table-status {
+	text-align: center;
+	font-size: small;
+	color: #999999;
+}
+#div-table-filtered {
+	padding: 3px 0 3px 0;
+	padding: 5px;
+	margin: 0 0 3px 0;
+	font-size: small;
+}
+#div-table-filtered a {
+	text-decoration: none;
+}
+#div-table-filtered a:hover {
+	text-decoration: underline;
+}
+
+/* Mensagens ****************************************************************************************************/
+#loadingmsg { visibility: hidden; position: absolute; top: 0; right: 0; background-color: red; color: #FFFFFF; font-size: 0.85em; font-weight: bold; padding: 2px; }
+#block-appmsg {
+	background-color: #FFFFFF;
+}
+#appmsg-container {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 2px;
+	width: 60%;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+#appmsg {
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 3px;
+	font-weight: bold;
+	font-size: small;
+}
+#appmsgerror {
+	font-size: small;
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+#appmsgerror ul li {
+	list-style: none;
+}
+
+/* Navegação das listas ****************************************************************************************/
+#div-navigation {
+	text-align: left;
+	background-color: #FFFFFF;
+	color: #999999;
+	font-size: small;
+	padding: 3px;
+	margin: 5px 0 5px 0;
+	height: 20px;
+	text-align: center;
+}
+#div-navigation a {
+	font-size: small;
+	margin-right: 8px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #999999;
+	background-color: #F0F0F0;
+	padding: 5px 10px 5px 10px;
+}
+.destaque-page {
+	color: #CC0000 !important;
+}
+
+.rounded {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* Abas *********************************************************************************************************/
+#header_tab {
+	/*margin-bottom: 2px;*/
+	padding: 10px 0 2px 0;
+}
+#xheader_tab ul {
+	margin: 0;
+	padding: 10px 10px 0;
+	list-style: none;
+}
+#xheader_tab li {
+	background-color: #F0F0F0;
+	float: left;
+	margin: 0;
+	margin-right: 3px;
+	padding: 0 0 0 9px;
+	border-right: 1px solid #CCCCCC;
+	color: #666666;
+	-moz-border-top-left-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-khtml-border-top-left-radius: 5px;
+	-khtml-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+#xheader_tab a, #xheader strong, #xheader span {
+	float: left;
+	padding: 5px 15px 4px 6px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #666666;
+}
+#xheader_tab #current {
+	background-color: #D54E21;
+	color: #FFFFFF;
+	border-right: 1px solid #CCCCCC;
+}
+#xheader_tab #current a {
+	padding-bottom: 5px;
+	color: #FFFFFF;
+}
+
+/* Hint *********************************************************************************************************/
+.hintstyle { position: absolute;  padding: 5px 8px 5px 8px; font-size: small;  width: 200px; }
+.hintanchor { cursor: pointer; margin: 1px; }
+.hintstyle ul {
+	list-style: none;
+}
+
+/* Critérios de pesquisa ****************************************************************************************/
+#more-text ul {
+	/*list-style: none;*/
+	font-weight: bold;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+/* Box **********************************************************************************************************/
+.div-box { margin: 5px; }
+.div-box table { width: 100%; }
+.div-box th { text-align: center; font-weight: bold; background-color: #F0F0F0; padding: 5px; }
+.div-box td { padding: 8px 5px 8px 5px; }
+.div-box .btn { padding: 5px 2px 5px 2px; border-bottom: 1px dashed #CCCCCC; }
+
+/* Grid *********************************************************************************************************/
+.grid-container {
+	width: 100%;
+	display: table;
+}
+.grid-row {
+	text-align: center;
+	float: left;
+	margin: 3px;
+	white-space: normal;
+	overflow: auto;
+}
+.grid-item img {
+	border: 0px;
+	margin-top: 1px;
+}
+.grid-item, .grid-item a {
+	font-size: small;
+	color: #666666;
+}
+.grid-item a {
+	color: #CC0000;
+}
+
+/* Calendário *****************************************************************************************************/
+#frmCal td {
+	font-size: small;
+	font-weight: normal;
+	vertical-align: top;
+	color: #666666;
+}
+#frmCal td .calendario-dia {
+	color: #999999;
+	font-size: large;
+	padding: 5px;
+	font-weight: bold;
+}
+#frmCal td .hoje {
+	color: darkorange;
+}
+#frmCal td ul {
+	padding-left: 5px;
+	list-style: none;
+	min-height: 70px;
+}
+#frmCal td li, #frmCal td li a {
+	border-top: 1px dotted #D0D0D0;
+	padding: 2px 0 2px 0;
+	font-size: x-small !important;
+}
+
+
+
+/* Autocomplete ****************************************************************************************************/
+.ui-autocomplete {
+	max-height: 100px;
+	overflow: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	/* add padding to account for vertical scrollbar */
+	padding-right: 20px;
+}
+.ui-autocomplete-loading {
+	background: white url('../img/ajax-loader.gif') right center no-repeat;
+}
+
+/* Validação inline ***************************************************************************************************/
+label.error {
+	font-size: small;
+	font-weight: bold;
+	color: #FF0000;
+	padding: 0px 5px 0px 5px;
+	float: right;
+}
+input.error {
+	color: #FF0000;
+}
+
+/* Layout *************************************************************************************************************/
+#layout div {
+	margin: 0px 10px 10px 0;
+}
+
+/* Text Counter *******************************************************************************************************/
+.text-counter span {
+	font-size: x-small;
+	color: #B9B9B9;
+	margin-left: 4px;
+}
+
+/* Sombra da janela popup *********************************************************************************************/
+.simplemodal-container {
+	box-shadow: 2px 2px 15px #000000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+#simplemodal-container a.modalCloseImg {
+	background:url(../img/x.png) no-repeat;
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-10px;
+	right:-13px;
+	cursor:pointer;
+}
+.popover-fechar {
+	background:url(../img/x.png) no-repeat;
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-10px;
+	right:-13px;
+	cursor:pointer;
+}
+
+/* Folding ************************************************************************************************************/
+.folding .content {
+	border-left: 5px solid #D0D0D0;
+	padding: 5px;
+}
+.folding .title {
+	cursor: pointer;
+}
+
+/* ClickShow **********************************************************************************************************/
+.click-show {
+	cursor: pointer;
+	white-space: nowrap;
+	font-size: small;
+	color: #C0C0C0;
+}
+.click-show-mouse {
+	cursor: pointer;
+	white-space: nowrap;
+	font-size: small;
+	color: #000000;
+}
+
+/* ListboxLov *********************************************************************************************************/
+.listbox-lov {
+}
+.listbox-lov select {
+	float: left;
+	min-width: 100px;
+}
+.listbox-lov .btn {
+	float: left;
+	padding: 4px;
+}
+.listbox-lov .btn div {
+	margin-bottom: 2px;
+}
+
+/* Button Icon **********************************************************************************************************/
+.button-icon {
+	padding: 3px !important;
+	cursor: pointer;
+	background-color: #F5F5F5;
+	border: 1px solid #E0E0E0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	margin: 2px;
+	width: 24px;
+	display: inline;
+}
+
+/* radio button **********************************************************************************************************/
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
+	padding: .2em 1em .2em 2.1em !important;
+}
+
+input.ui-button {
+	font-size: 0.9em !important;
+}
+
+/* Menu *******************************************************************************************************************/
+#menu {
+	clear: both;
+	background-color: #464646;
+	font-size: small;
+	height: 34px;
+}
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color: #D0D0D0 !important;
+}
+.sf-menu li {
+	background: #464646 !important;
+}
+.sf-menu li li {
+	background: #464646 !important;
+}
+.sf-menu li li li {
+	background: #464646 !important;
+}
+.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background: #333333 !important;
+	color: #FFFFFF !important;
+}
+
+/* Multiple Checkbox ***************************************************************************************************/
+.checkbox-group {
+	display: table;
+	width: 100%;
+	white-space: normal;
+}
+.multiple-checkbox-h {
+	width: 250px;
+	float: left;
+	padding: 0 3px 3px 0px;
+}
+
+/* Radio-H ***********************************************************************************************************/
+.radio-h-oldstyle label {
+	margin: 0 10px 0 3px;
+}
+
+/* Clicável **********************************************************************************************************/
+.clicavel {
+	cursor: pointer;
+}
+
+/* Accordion *********************************************************************************************************/
+.accordion, .multiaccordion {
+	font-size: small !important;
+}
+
+/* H3 ***************************************************************************************************************/
+.h3 {
+	font-size: x-large;
+	color: #464646;
+	padding: 15px 0 5px 0;
+}
+
+/* Timepicker *******************************************************************************************************/
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 80%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
